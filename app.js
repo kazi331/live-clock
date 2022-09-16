@@ -22,17 +22,19 @@ setClock();
 setInterval(setClock, 1000);
 
 // theme switching 
-
+const overlay = document.getElementById('overlay');
 const switchTheme = (evt) => {
 	const switchBtn = evt.target;
 	if (switchBtn.textContent.toLowerCase() === "light") {
 		switchBtn.textContent = "dark";
 		localStorage.setItem("theme", "dark");
 		document.documentElement.setAttribute("data-theme", "dark");
+		overlay.classList.add('active')
 	} else {
 		switchBtn.textContent = "light";
 		localStorage.setItem("theme", "light"); //add this
 		document.documentElement.setAttribute("data-theme", "light");
+		overlay.classList.remove('active')
 	}
 };
 
